@@ -1,30 +1,40 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import routes from './routes.js';
+// import store from '../store/index.js';
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
-
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
 });
+
+//************************************/
+//*** NAVIGATION GUARDS FOR LOGIN ***/
+//**********************************/
+
+//Router navigation guards for login & account page
+
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some((record) => record.meta.requiresAuth)) {
+//     if (!store.getters.isLoggedIn) {
+//       // Redirect to the Login Page
+//       next('/Login');
+//     } else {
+//       next();
+//     }
+//   } else if (to.matched.some((record) => record.meta.requiresGuest)) {
+//     if (store.getters.isLoggedIn) {
+//       // Redirect to the Login Page
+//       next('/Account');
+//     } else {
+//       next();
+//     }
+//   } else {
+//     next();
+//   }
+// });
 
 export default router;
