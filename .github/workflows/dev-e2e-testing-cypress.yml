@@ -1,9 +1,9 @@
-name: End-to-end tests
+name: End-to-end tests with Cypress
 
 on:
   push:
-    branches-ignore:
-      - master
+    branches:
+      - dev
 
 jobs:
   cypress-run:
@@ -18,5 +18,7 @@ jobs:
           wait-on: http://localhost:8080/
           config_file: cypress.json
           spec: 'tests/e2e/**/*'
+          browser: chrome
+          headless: true
         env:
           CYPRESS_baseUrl: http://localhost:8080/

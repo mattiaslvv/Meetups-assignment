@@ -5,26 +5,23 @@ name: Unit Testing in Docker Container
 
 on:
   push:
-    branches-ignore:
-      - master
-  pull_request:
-    branches-ignore:
-      - master
+    branches:
+      - dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # skapar variabel
       - name: Set environment variables
         run: |
-          # skapar variabel
           echo "::set-env name=SHORT_SHA::$(echo ${GITHUB_SHA::7})"
           echo "::set-env name=BRANCH::$(echo ${GITHUB_REF##*/})"
       - name: Concatenate environment varibles
         run: |
           echo "::set-env name=IMAGE_TAGS::${SHORT_SHA}"
-          #skapar variabel för repositopry och unika commit id
+        # skapar variabel för repositopry och unika commit id
         # måste göra en checkout för att klona repo för att komma åt filen docker. Docker ger i sin tur angivna instruktioner.
       - name: Checkout
         uses: actions/checkout@v2
