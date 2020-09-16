@@ -9,14 +9,14 @@ RUN npm ci
 # npm ci installs directly from package-lock.json the exact
 # versions wich is faster than from package*.json.
 
-# Test and build app
+# Copy app and start Unit Testing
 COPY . .
 RUN npm run test:unit
 #RUN npm run test:e2e
-RUN npm run build
+# RUN npm run build
 
 # Production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# FROM nginx:stable-alpine as production-stage
+# COPY --from=build-stage /app/dist /usr/share/nginx/html
+# EXPOSE 80
+# CMD ["nginx", "-g", "daemon off;"]
