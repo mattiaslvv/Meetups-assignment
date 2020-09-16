@@ -37,3 +37,5 @@ jobs:
           password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
           image_name: '${{ secrets.DOCKER_HUB_USERNAME }}/meetups-assignment-tests'
           image_tag: '${{ env.IMAGE_TAGS }}'
+      - name: Cypress run
+          uses: cypress-io/github-action@v1

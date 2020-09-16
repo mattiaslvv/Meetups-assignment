@@ -12,7 +12,7 @@ RUN npm ci
 # Test and build app
 COPY . .
 RUN npm run test:unit
-RUN npm run test:e2e
+#RUN npm run test:e2e
 RUN npm run build
 
 # Production stage
