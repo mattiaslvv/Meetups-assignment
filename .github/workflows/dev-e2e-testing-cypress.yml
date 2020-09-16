@@ -17,7 +17,7 @@ jobs:
           start: npm run serve
           wait-on: http://localhost:8080/
           config-file: cypress.json
-          spec: 'tests/e2e/**/*'
+          spec: 'src/tests/e2e/**/*'
           browser: chrome
           headless: true
         env:
