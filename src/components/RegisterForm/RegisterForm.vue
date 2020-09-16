@@ -1,6 +1,10 @@
 <template>
   <div>
     <form>
+      <div class="form-name">
+        <label for="name">Your full name</label>
+        <input type="text" id="name" placeholder="Full name..." name="name" />
+      </div>
       <div class="form-username">
         <label for="username">Username</label>
         <input

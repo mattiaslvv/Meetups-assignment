@@ -1,31 +1,26 @@
-//*********************/
-//*** IMPORT VIEWS ***/
-//*******************/
-import Account from '../views/Account/Account.vue';
-import Home from '../views/Home/Home.vue';
-import Login from '../views/Login/Login.vue';
-import Register from '../views/Register/Register.vue';
-
+//******************************/
+//*** ROUTES FOR VUE ROUTER ***/
+//****************************/
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: () => import('../views/Home/Home.vue'),
   },
   {
     path: '/Account',
     name: 'Account',
-    component: Account,
+    component: () => import('../views/Account/Account.vue'),
   },
   {
     path: '/Login',
     name: 'Login',
-    component: Login,
+    component: () => import('../views/Login/Login.vue'),
   },
   {
     path: '/Register',
     name: 'Register',
-    component: Register,
+    component: () => import('../views/Register/Register.vue'),
   },
 ];
 
