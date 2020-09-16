@@ -1,0 +1,9 @@
+**/node_modules
+**/dist
+.env
+npm-debug.log
+.editorconfig
+.git
+*.md
+*.yml
+app.json
