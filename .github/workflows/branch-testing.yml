@@ -28,6 +28,11 @@ jobs:
         # måste göra en checkout för att klona repo för att komma åt filen docker. Docker ger i sin tur angivna instruktioner.
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          browser: chrome
+          headless: true
       - name: Test, Build & Publish Docker image
         uses: whoan/docker-build-with-cache-action@v5
         with:
@@ -37,5 +42,3 @@ jobs:
           password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
           image_name: '${{ secrets.DOCKER_HUB_USERNAME }}/meetups-assignment-tests'
           image_tag: '${{ env.IMAGE_TAGS }}'
-      - name: Cypress run
-          uses: cypress-io/github-action@v1
