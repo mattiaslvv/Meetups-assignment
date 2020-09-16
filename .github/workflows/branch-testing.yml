@@ -35,5 +35,5 @@ jobs:
           #secrets är en encrypted variabel sparad i github. Konfigurerad med docker inlog/pw
           username: '${{ secrets.DOCKER_HUB_USERNAME }}'
           password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
-          image_name: '${{ secrets.DOCKER_HUB_USERNAME }}/meetups-assignment'
+          image_name: '${{ secrets.DOCKER_HUB_USERNAME }}/meetups-assignment-tests'
           image_tag: '${{ env.IMAGE_TAGS }}'
