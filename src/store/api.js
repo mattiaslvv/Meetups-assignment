@@ -1,5 +1,10 @@
 import axios from 'axios';
 
+//***********************/
+//*** API OPERATIONS ***/
+//*********************/
+
+//TODO: fix api operations according to mongoDB & express.js data
 const api = axios.create({
   baseURL: 'http://localhost:5000/api',
 });
