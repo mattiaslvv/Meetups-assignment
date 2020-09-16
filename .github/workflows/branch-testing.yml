@@ -31,7 +31,7 @@ jobs:
       - name: Test, Build & Publish Docker image
         uses: whoan/docker-build-with-cache-action@v5
         with:
-          dockerfile: tests.Dockerfile
+          dockerfile: tests/Dockerfile
           #secrets är en encrypted variabel sparad i github. Konfigurerad med docker inlog/pw
           username: '${{ secrets.DOCKER_HUB_USERNAME }}'
           password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
