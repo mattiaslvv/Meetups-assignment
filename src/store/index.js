@@ -6,15 +6,32 @@ import Vuex from 'vuex';
 import actions from './actions.js';
 import getters from './getters.js';
 import mutations from './mutations.js';
+import Auth from './auth.js';
+import Meetups from './meetups.js';
 
 Vue.use(Vuex);
 //*********************/
 //*** GLOBAL STATE ***/
 //*******************/
 export default new Vuex.Store({
-  state: {},
+  state: {
+    loginForm: {
+      username: '',
+      password: '',
+    },
+    registerForm: {
+      name: '',
+      username: '',
+      confirm_password: '',
+      email: '',
+      password: '',
+    },
+  },
   mutations: mutations,
   actions: actions,
   getters: getters,
-  modules: {},
+  modules: {
+    Auth,
+    Meetups,
+  },
 });
