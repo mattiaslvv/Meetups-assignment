@@ -1,6 +1,9 @@
+import { getField } from 'vuex-map-fields';
 //***********************/
 //*** GLOBAL GETTERS ***/
 //*********************/
-const getters = {};
+const getters = {
+  getField,
+};
 
 export default getters;
