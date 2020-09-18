@@ -1,19 +1,25 @@
 <template>
   <div id="app">
     <NavBar />
+    <Errors v-if="error" :msg="error" />
     <router-view />
     <Footer />
   </div>
 </template>
 <script>
 import NavBar from '@/components/Navbar/Navbar.vue';
+import Errors from '@/components/Errors/Errors.vue';
 import Footer from '@/components/Footer/Footer.vue';
-
+import { mapGetters } from 'vuex';
 export default {
   name: 'App',
   components: {
     NavBar,
     Footer,
+    Errors,
+  },
+  computed: {
+    ...mapGetters(['error']),
   },
 };
 </script>

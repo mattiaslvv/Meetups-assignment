@@ -1,12 +1,24 @@
-//******************************/
-//*** IMPORT API OPERATIONS ***/
-//****************************/
-//TODO: fix API calls in actions with ASYNC/AWAIT.
-// import * as API from './api.js';
-
 //***********************/
 //*** GLOBAL ACTIONS ***/
 //*********************/
-const actions = {};
+const actions = {
+  async loginThisUser(context, value) {
+    let user = {
+      username: value.username,
+      password: value.password,
+    };
+    await context.dispatch('login', user);
+  },
+  async registerThisUser(context, value) {
+    let user = {
+      username: value.username,
+      password: value.password,
+      confirm_password: value.confirm_password,
+      email: value.email,
+      name: value.name,
+    };
+    await context.dispatch('register', user);
+  },
+};
 
 export default actions;
