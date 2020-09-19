@@ -19,6 +19,9 @@ const actions = {
     };
     await context.dispatch('register', user);
   },
+  async sendThisReview(context, id, text) {
+    await context.dispatch('sendReview', id, text);
+  },
 };
 
 export default actions;
