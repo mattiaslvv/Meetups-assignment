@@ -19,8 +19,16 @@ const actions = {
     };
     await context.dispatch('register', user);
   },
-  async sendThisReview(context, id, text) {
-    await context.dispatch('sendReview', id, text);
+  async sendThisReview(context, id) {
+    const text = context.state.newReview.text;
+    const username = context.getters.user.username;
+    const payload = {
+      _id: id,
+      text: text,
+      username: username,
+    };
+    console.log(text);
+    context.dispatch('sendReview', payload);
   },
 };
 

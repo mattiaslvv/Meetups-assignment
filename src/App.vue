@@ -2,6 +2,7 @@
   <div id="app">
     <NavBar />
     <Errors v-if="error" :msg="error" />
+    <Errors v-if="meetupsError" :msg="meetupsError" />
     <router-view />
     <Footer />
   </div>
@@ -10,7 +11,7 @@
 import NavBar from '@/components/Navbar/Navbar.vue';
 import Errors from '@/components/Errors/Errors.vue';
 import Footer from '@/components/Footer/Footer.vue';
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'App',
   components: {
@@ -19,7 +20,15 @@ export default {
     Errors,
   },
   computed: {
-    ...mapGetters(['error']),
+    ...mapGetters(['error', 'isLoggedIn', 'meetupsError']),
+  },
+  methods: {
+    ...mapActions(['getProfile']),
+  },
+  created() {
+    if (this.isLoggedIn) {
+      this.getProfile();
+    }
   },
 };
 </script>
