@@ -26,10 +26,11 @@ export default new Vuex.Store({
       email: '',
       password: '',
     },
-    newReview: {
-      username: '',
-      text: '',
-    },
+    newReview: [
+      {
+        username: '',
+      },
+    ],
   },
   mutations: mutations,
   actions: actions,
