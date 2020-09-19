@@ -6,7 +6,7 @@ import router from '../router/index.js';
 
 //TODO: fix api operations according to mongoDB & express.js data
 const api = axios.create({
-  baseURL: process.env.MEETUPS_API,
+  baseURL: 'https://meetups-back-end.herokuapp.com/api',
 });
 //**********************/
 //*** MEETUPS STATE ***/
@@ -37,7 +37,6 @@ const actions = {
   async getAllMeetups({ commit }) {
     commit('meetup_request');
     let res = await api.get('/meetups/all');
-
     commit('meetup_success', res.data.meetups);
     return res;
   },
