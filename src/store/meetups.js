@@ -1,11 +1,12 @@
 import axios from 'axios';
+import router from '../router/index.js';
 //*******************************/
 //*** API OPERATIONS MEETUPS ***/
 //*****************************/
 
 //TODO: fix api operations according to mongoDB & express.js data
 const api = axios.create({
-  baseURL: 'https://meetups-back-end.herokuapp.com/api',
+  baseURL: process.env.MEETUPS_API,
 });
 //**********************/
 //*** MEETUPS STATE ***/
@@ -49,9 +50,9 @@ const actions = {
     commit('review_request');
     try {
       let res = await api.post('/meetups/review', postData);
-      console.log(res);
       if (res.data.success) {
         await commit('review_success');
+        router.push('/');
       }
       return res;
     } catch (err) {
