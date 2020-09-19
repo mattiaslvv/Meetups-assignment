@@ -51,7 +51,7 @@ const actions = {
       let res = await api.post('/meetups/review', postData);
       if (res.data.success) {
         await commit('review_success');
-        router.push('/');
+        router.history.go();
       }
       return res;
     } catch (err) {
