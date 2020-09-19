@@ -22,7 +22,6 @@ const actions = {
   async sendThisReview(context, payload) {
     const text = payload.text;
     const id = payload._id;
-    console.log(text);
     const username = context.getters.user.username;
     const newPayload = {
       _id: id,
