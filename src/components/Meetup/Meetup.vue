@@ -35,9 +35,9 @@
           type="text"
           placeholder="Thoughts?"
           name="newReviewText"
-          v-model="text"
+          v-model="reviewText"
         />
-        <button @click="sendThisReview(meetup._id)">
+        <button @click="sendThisReview({ _id: meetup._id, text: reviewText })">
           Send review
         </button>
       </div>
@@ -46,13 +46,16 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { mapFields } from 'vuex-map-fields';
 import Map from '../Map/Map.vue';
 export default {
   name: 'Meetup',
+  data() {
+    return {
+      reviewText: '',
+    };
+  },
   computed: {
     ...mapGetters(['isLoggedIn']),
-    ...mapFields(['newReview.text']),
   },
   props: {
     meetup: {},

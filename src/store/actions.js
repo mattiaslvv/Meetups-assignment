@@ -19,15 +19,17 @@ const actions = {
     };
     await context.dispatch('register', user);
   },
-  async sendThisReview(context, id) {
-    const text = context.state.newReview.text;
+  async sendThisReview(context, payload) {
+    const text = payload.text;
+    const id = payload._id;
+    console.log(text);
     const username = context.getters.user.username;
-    const payload = {
+    const newPayload = {
       _id: id,
       text: text,
       username: username,
     };
-    context.dispatch('sendReview', payload);
+    context.dispatch('sendReview', newPayload);
   },
 };
 
