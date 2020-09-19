@@ -31,10 +31,8 @@
         </li>
       </div>
       <div v-if="isLoggedIn">
-        <label for="newReviewText">Review</label>
         <input
           type="text"
-          id="newReviewText"
           placeholder="Thoughts?"
           name="newReviewText"
           v-model="text"

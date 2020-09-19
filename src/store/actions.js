@@ -27,7 +27,6 @@ const actions = {
       text: text,
       username: username,
     };
-    console.log(text);
     context.dispatch('sendReview', payload);
   },
 };
