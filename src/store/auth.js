@@ -65,7 +65,6 @@ const actions = {
     try {
       commit('register_request');
       let res = await api.post('/users/register', userData);
-      console.log(res);
       if (res.data.success) {
         await commit('register_success');
         router.push('/Login');

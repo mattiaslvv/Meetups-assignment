@@ -2,7 +2,7 @@
 //*** IMPORT STORE MODULES & VUE/VUEX ***/
 //**************************************/
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { mapGetters } from 'vuex';
 import actions from './actions.js';
 import getters from './getters.js';
 import mutations from './mutations.js';
@@ -25,6 +25,10 @@ export default new Vuex.Store({
       confirm_password: '',
       email: '',
       password: '',
+    },
+    newReview: {
+      username: mapGetters(['user']).username,
+      text: '',
     },
   },
   mutations: mutations,

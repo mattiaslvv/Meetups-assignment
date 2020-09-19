@@ -30,18 +30,40 @@
           {{ review.username }} commented: {{ review.text }}
         </li>
       </div>
+      <div v-if="isLoggedIn">
+        <label for="newReviewText">Review</label>
+        <input
+          type="text"
+          id="newReviewText"
+          placeholder="Thoughts?"
+          name="newReviewText"
+          v-model="text"
+        />
+        <button @click="sendThisReview(meetup._id, text)">
+          Send review
+        </button>
+      </div>
     </ul>
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex';
+import { mapFields } from 'vuex-map-fields';
 import Map from '../Map/Map.vue';
 export default {
   name: 'Meetup',
+  computed: {
+    ...mapGetters(['isLoggedIn']),
+    ...mapFields(['newReview.text']),
+  },
   props: {
     meetup: {},
   },
   components: {
     Map,
+  },
+  methods: {
+    ...mapActions(['sendThisReview']),
   },
 };
 </script>
