@@ -39,7 +39,7 @@
           name="newReviewText"
           v-model="text"
         />
-        <button @click="sendThisReview(meetup._id, text)">
+        <button @click="sendThisReview(meetup._id)">
           Send review
         </button>
       </div>

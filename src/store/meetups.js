@@ -5,7 +5,7 @@ import axios from 'axios';
 
 //TODO: fix api operations according to mongoDB & express.js data
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://meetups-back-end.herokuapp.com/api',
 });
 //**********************/
 //*** MEETUPS STATE ***/
@@ -23,6 +23,8 @@ const state = {
 
 const getters = {
   getMeetups: (state) => state.allMeetups,
+  meetupsError: (state) => state.error,
+  meetupsStatus: (state) => state.status,
 };
 
 //************************/
@@ -38,19 +40,15 @@ const actions = {
     commit('meetup_success', res.data.meetups);
     return res;
   },
-  async sendReview({ commit, state }, id, reviewText) {
-    let meetupId = id;
-    let text = reviewText;
-    //TODO: fix this! username undefined
-    let username = state.newReview.username;
-    let review = {
-      username: username,
-      text: text,
+  async sendReview({ commit }, payload) {
+    let postData = {
+      _id: payload._id,
+      username: payload.username,
+      text: payload.text,
     };
     commit('review_request');
-    console.log(meetupId, username, text);
     try {
-      let res = await api.post('/meetups/review', meetupId, review);
+      let res = await api.post('/meetups/review', postData);
       console.log(res);
       if (res.data.success) {
         await commit('review_success');
