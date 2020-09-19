@@ -1,5 +1,7 @@
 <template>
-  <div class="alert alert-danger">{{ msg }}</div>
+  <div>
+    <div class="alert alert-danger">{{ msg }}</div>
+  </div>
 </template>
 <script>
 export default {
