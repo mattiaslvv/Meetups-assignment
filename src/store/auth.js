@@ -6,7 +6,7 @@ import router from '../router/index.js';
 //**************************/
 // TODO: change for deployment of backend server to heroku
 const api = axios.create({
-  baseURL: process.env.MEETUPS_API,
+  baseURL: 'https://meetups-back-end.herokuapp.com/api',
 });
 
 //*****************************/
