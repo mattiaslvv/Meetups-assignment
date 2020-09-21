@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Meetup v-for="meetup in getMeetups" :key="meetup._id" :meetup="meetup" />
+    <Meetup
+      v-for="meetup in filteredMeetups"
+      :key="meetup._id"
+      :meetup="meetup"
+    />
   </div>
 </template>
 <script>
@@ -12,7 +16,7 @@ export default {
     Meetup,
   },
   computed: {
-    ...mapGetters(['getMeetups']),
+    ...mapGetters(['filteredMeetups']),
   },
   methods: {
     ...mapActions(['getAllMeetups']),
