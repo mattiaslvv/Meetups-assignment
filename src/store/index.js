@@ -31,6 +31,17 @@ export default new Vuex.Store({
         username: '',
       },
     ],
+    meetupForm: {
+      eventName: '',
+      host: '',
+      details: '',
+      date: '',
+      address: '',
+      location: {
+        type: '',
+        coordinates: [],
+      },
+    },
   },
   mutations: mutations,
   actions: actions,
