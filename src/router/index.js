@@ -15,7 +15,7 @@ const router = new VueRouter({
 //*** NAVIGATION GUARDS FOR LOGIN ***/
 //**********************************/
 
-// Router navigation guards for login & account page
+// Router navigation guards for login & account page & create meetup page
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {

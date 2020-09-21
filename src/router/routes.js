@@ -39,6 +39,11 @@ const routes = [
       requiresGuest: true,
     },
   },
+  {
+    path: '/MeetupDetails/:id',
+    name: 'MeetupDetails',
+    component: () => import('../views/MeetupDetails/MeetupDetails.vue'),
+  },
 ];
 
 export default routes;
