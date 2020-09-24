@@ -7,6 +7,7 @@
           type="text"
           id="username"
           placeholder="Username..."
+          autocomplete="username"
           name="username"
           v-model="username"
         />
@@ -17,6 +18,7 @@
           type="password"
           id="password"
           placeholder="Password..."
+          autocomplete="current-password"
           name="password"
           v-model="password"
         />

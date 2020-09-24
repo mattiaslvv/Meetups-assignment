@@ -7,7 +7,7 @@ import router from '../router/index.js';
 //TODO: fix api operations according to mongoDB & express.js data
 let url;
 if (process.env.NODE_ENV === 'development') {
-  url = 'http://localhost:5000/api';
+  url = 'http://localhost:5000/api/meetups';
 } else {
   url = 'https://meetups-back-end.herokuapp.com/api';
 }
@@ -19,7 +19,6 @@ const api = axios.create({
 //********************/
 
 const state = {
-  status: '',
   error: null,
   allMeetups: [],
   filteredMeetups: [],
@@ -33,7 +32,6 @@ const state = {
 const getters = {
   getMeetups: (state) => state.allMeetups,
   meetupsError: (state) => state.error,
-  meetupsStatus: (state) => state.status,
   clickedMeetup: (state) => state.clickedMeetup,
   filteredMeetups: (state) => state.filteredMeetups,
 };
@@ -45,18 +43,18 @@ const getters = {
 const actions = {
   // Get all meetups
   async getAllMeetups({ commit }) {
-    commit('meetup_request');
-    let res = await api.get('/meetups/all');
+    commit('error_null');
+    let res = await api.get('/all');
     commit('meetup_success', res.data.meetups);
     return res;
   },
   //Register a new meetup
   async registerMeetup({ commit }, postData) {
-    commit('api_request');
+    commit('error_null');
     try {
-      let res = await api.post('/meetups/register', postData);
+      let res = await api.post('/register', postData);
       if (res.data.success) {
-        await commit('api_success');
+        router.push(`/MeetupDetails/${res.data.meetup._id}`);
       }
       return res;
     } catch (err) {
@@ -64,11 +62,10 @@ const actions = {
     }
   },
   async sendReview({ commit }, postData) {
-    commit('api_request');
+    commit('error_null');
     try {
-      let res = await api.post('/meetups/review', postData);
+      let res = await api.post('/review', postData);
       if (res.data.success) {
-        await commit('api_success');
         router.history.go();
       }
       return res;
@@ -77,11 +74,10 @@ const actions = {
     }
   },
   async removeReview({ commit }, postData) {
-    commit('api_request');
+    commit('error_null');
     try {
-      let res = await api.put('/meetups/review', postData);
+      let res = await api.put('/review', postData);
       if (res.data.success) {
-        await commit('api_success');
         router.history.go();
       }
       return res;
@@ -99,7 +95,7 @@ const actions = {
     const postData = {
       id: payload,
     };
-    let res = await api.post('/meetups/meetup', postData);
+    let res = await api.post('/meetup', postData);
     if (res.data.success) {
       await commit('set_clicked_meetup', res.data.meetups);
     }
@@ -109,11 +105,10 @@ const actions = {
     await commit('set_clicked_meetup', null);
   },
   async attendMeetup({ commit }, postData) {
-    commit('api_request');
+    commit('error_null');
     try {
-      let res = await api.post('/meetups/attend', postData);
+      let res = await api.post('/attend', postData);
       if (res.data.success) {
-        await commit('api_success');
         router.history.go();
       }
       return res;
@@ -122,11 +117,10 @@ const actions = {
     }
   },
   async removeAttendMeetup({ commit }, postData) {
-    commit('api_request');
+    commit('error_null');
     try {
-      let res = await api.put('/meetups/attend', postData);
+      let res = await api.put('/attend', postData);
       if (res.data.success) {
-        await commit('api_success');
         router.history.go();
       }
       return res;
@@ -141,23 +135,13 @@ const actions = {
 //************************/
 
 const mutations = {
-  meetup_request(state) {
+  error_null(state) {
     state.error = null;
-    state.status = 'Loading..';
   },
   meetup_success(state, meetups) {
     state.allMeetups = meetups;
     state.filteredMeetups = meetups;
     state.error = null;
-    state.status = 'Success!';
-  },
-  api_request(state) {
-    state.error = null;
-    state.status = 'Loading..';
-  },
-  api_success(state) {
-    state.error = null;
-    state.status = 'Success!';
   },
   api_error(state, err) {
     state.error = err.response.data.msg;
