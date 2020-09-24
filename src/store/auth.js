@@ -7,7 +7,7 @@ import router from '../router/index.js';
 // TODO: change for deployment of backend server to heroku
 let url;
 if (process.env.NODE_ENV === 'development') {
-  url = 'http://localhost:5000/api';
+  url = 'http://localhost:5000/api/users';
 } else {
   url = 'https://meetups-back-end.herokuapp.com/api';
 }
@@ -21,7 +21,6 @@ const api = axios.create({
 const state = {
   token: window.localStorage.getItem('token') || '',
   user: {},
-  status: '',
   error: null,
 };
 
@@ -31,7 +30,6 @@ const state = {
 
 const getters = {
   isLoggedIn: (state) => !!state.token,
-  authState: (state) => state.status,
   user: (state) => state.user,
   error: (state) => state.error,
 };
@@ -43,9 +41,9 @@ const getters = {
 const actions = {
   //Login action
   async login({ commit }, user) {
-    commit('auth_request');
+    commit('error_null');
     try {
-      let res = await api.post('/users/login', user);
+      let res = await api.post('/login', user);
       if (res.data.success) {
         const token = res.data.token;
         const user = res.data.user;
@@ -56,16 +54,15 @@ const actions = {
       }
       return res;
     } catch (err) {
-      commit('auth_error', err);
+      commit('register_error', err);
     }
   },
   // Register new user
   async register({ commit }, userData) {
     try {
-      commit('register_request');
-      let res = await api.post('/users/register', userData);
+      commit('error_null');
+      let res = await api.post('/register', userData);
       if (res.data.success) {
-        await commit('register_success');
         router.push('/Login');
       }
       return res;
@@ -75,9 +72,9 @@ const actions = {
   },
   // Get the user profile
   async getProfile({ commit }) {
-    commit('profile_request');
+    commit('error_null');
     api.defaults.headers.common['Authorization'] = state.token;
-    let res = await api.get('/users/profile');
+    let res = await api.get('/profile');
     commit('user_profile', res.data.user);
     return res;
   },
@@ -96,38 +93,21 @@ const actions = {
 //*******************************/
 
 const mutations = {
-  auth_request(state) {
+  error_null(state) {
     state.error = null;
-    state.status = 'Loading..';
   },
   auth_success(state, token, user) {
     state.token = token;
     state.user = user;
-    state.status = 'Success';
     state.error = null;
-  },
-  auth_error(state, err) {
-    state.error = err.response.data.msg;
-  },
-  register_request(state) {
-    state.error = null;
-    state.status = 'Loading...';
-  },
-  register_success(state) {
-    state.error = null;
-    state.status = 'Success';
   },
   register_error(state, err) {
     state.error = err.response.data.msg;
   },
   logout(state) {
     state.error = null;
-    state.status = '';
     state.token = '';
     state.user = '';
-  },
-  profile_request(state) {
-    state.status = 'Loading...';
   },
   user_profile(state, user) {
     state.user = user;

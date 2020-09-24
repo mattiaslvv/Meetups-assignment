@@ -1,5 +1,10 @@
 <template>
   <div class="card" v-if="clickedMeetup">
+    <img
+      class="placeholder"
+      src="https://placeimg.com/600/300/any"
+      alt="Placeholder Image"
+    />
     <ul>
       <li>Name: {{ clickedMeetup.eventName }}</li>
       <br />
@@ -7,15 +12,17 @@
       <br />
       <li>Details: {{ clickedMeetup.details }}</li>
       <br />
-      <li>When: {{ clickedMeetup.date }}</li>
+      <li>When: {{ clickedMeetup.date }} time: {{ clickedMeetup.time }}</li>
       <br />
       <li>Where: {{ clickedMeetup.address }}</li>
       <br />
-      <Map
+      <BaseMap
+        v-if="clickedMeetup.location.coordinates.length != 0"
         :coords="{
           lat: clickedMeetup.location.coordinates[1],
           long: clickedMeetup.location.coordinates[0],
         }"
+        :name="clickedMeetup.eventName"
       />
       <br />
       <!-- TODO: Add map here for showing coordinates -->
@@ -42,7 +49,6 @@
           {{ review.username }} commented: {{ review.text }}
         </li>
       </div>
-
       <div v-if="isLoggedIn && !alreadyReviewed">
         <textarea
           type="text"
@@ -66,7 +72,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import Map from '../Map/Map.vue';
+import BaseMap from '../BaseMap/BaseMap.vue';
 export default {
   name: 'Meetup',
   data() {
@@ -83,7 +89,7 @@ export default {
     ]),
   },
   components: {
-    Map,
+    BaseMap,
   },
   methods: {
     ...mapActions([
@@ -104,11 +110,21 @@ export default {
 };
 </script>
 <style scoped>
-.card {
-  border: 1px solid black;
+* {
+  box-sizing: border-box;
 }
 
 ul {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.card {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.placeholder {
+  margin: 15px;
 }
 </style>

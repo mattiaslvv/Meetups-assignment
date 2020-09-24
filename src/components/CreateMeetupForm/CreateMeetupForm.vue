@@ -1,8 +1,8 @@
 <template>
   <div>
-    <form>
+    <form class="create-meetup-form">
       <div class="form-eventName">
-        <label for="eventName">Meetup name:</label>
+        <label for="eventName">Meetup name</label>
         <input
           type="text"
           id="eventName"
@@ -12,7 +12,7 @@
         />
       </div>
       <div class="form-details">
-        <label for="details">Details:</label>
+        <label for="details">Details</label>
         <textarea
           type="text"
           id="details"
@@ -21,9 +21,8 @@
           v-model="details"
         />
       </div>
-      <!-- TODO: use geocoding here to get coordinates of address that was typed in-->
       <div class="form-address">
-        <label for="address">Address:</label>
+        <label for="address">Address</label>
         <input
           type="text"
           id="address"
@@ -32,20 +31,16 @@
           v-model="address"
         />
       </div>
+      <div class="form-time">
+        <label for="time">When is the Meetup?</label>
+        <input type="time" id="time" name="time" v-model="time" />
+      </div>
+      <!-- FIXME: time and date in seperate variables for cleaner look -->
       <div class="form-date">
-        <label for="date">When is the Meetup?</label>
+        <label for="date">On what date is the Meetup?</label>
         <input type="date" id="date" name="date" v-model="date" />
       </div>
-      <button
-        @click.prevent="
-          registerThisMeetup({
-            eventName: eventName,
-            details: details,
-            address: address,
-            date: date,
-          })
-        "
-      >
+      <button @click.prevent="registerThisMeetup">
         Register
       </button>
     </form>
@@ -60,6 +55,7 @@ export default {
     ...mapFields([
       'meetupForm.eventName',
       'meetupForm.details',
+      'meetupForm.time',
       'meetupForm.address',
       'meetupForm.date',
     ]),
