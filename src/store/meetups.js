@@ -7,7 +7,7 @@ import router from '../router/index.js';
 //TODO: fix api operations according to mongoDB & express.js data
 let url;
 if (process.env.NODE_ENV === 'development') {
-  url = 'http://localhost:5000/api';
+  url = 'http://localhost:5000/api/meetups';
 } else {
   url = 'https://meetups-back-end.herokuapp.com/api';
 }
@@ -44,7 +44,7 @@ const actions = {
   // Get all meetups
   async getAllMeetups({ commit }) {
     commit('error_null');
-    let res = await api.get('/meetups/all');
+    let res = await api.get('/all');
     commit('meetup_success', res.data.meetups);
     return res;
   },
@@ -52,7 +52,7 @@ const actions = {
   async registerMeetup({ commit }, postData) {
     commit('error_null');
     try {
-      let res = await api.post('/meetups/register', postData);
+      let res = await api.post('/register', postData);
       if (res.data.success) {
         router.push(`/MeetupDetails/${res.data.meetup._id}`);
       }
@@ -64,7 +64,7 @@ const actions = {
   async sendReview({ commit }, postData) {
     commit('error_null');
     try {
-      let res = await api.post('/meetups/review', postData);
+      let res = await api.post('/review', postData);
       if (res.data.success) {
         router.history.go();
       }
@@ -76,7 +76,7 @@ const actions = {
   async removeReview({ commit }, postData) {
     commit('error_null');
     try {
-      let res = await api.put('/meetups/review', postData);
+      let res = await api.put('/review', postData);
       if (res.data.success) {
         router.history.go();
       }
@@ -95,7 +95,7 @@ const actions = {
     const postData = {
       id: payload,
     };
-    let res = await api.post('/meetups/meetup', postData);
+    let res = await api.post('/meetup', postData);
     if (res.data.success) {
       await commit('set_clicked_meetup', res.data.meetups);
     }
@@ -107,7 +107,7 @@ const actions = {
   async attendMeetup({ commit }, postData) {
     commit('error_null');
     try {
-      let res = await api.post('/meetups/attend', postData);
+      let res = await api.post('/attend', postData);
       if (res.data.success) {
         router.history.go();
       }
@@ -119,7 +119,7 @@ const actions = {
   async removeAttendMeetup({ commit }, postData) {
     commit('error_null');
     try {
-      let res = await api.put('/meetups/attend', postData);
+      let res = await api.put('/attend', postData);
       if (res.data.success) {
         router.history.go();
       }

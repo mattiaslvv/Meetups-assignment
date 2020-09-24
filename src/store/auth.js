@@ -7,7 +7,7 @@ import router from '../router/index.js';
 // TODO: change for deployment of backend server to heroku
 let url;
 if (process.env.NODE_ENV === 'development') {
-  url = 'http://localhost:5000/api';
+  url = 'http://localhost:5000/api/users';
 } else {
   url = 'https://meetups-back-end.herokuapp.com/api';
 }
@@ -43,7 +43,7 @@ const actions = {
   async login({ commit }, user) {
     commit('error_null');
     try {
-      let res = await api.post('/users/login', user);
+      let res = await api.post('/login', user);
       if (res.data.success) {
         const token = res.data.token;
         const user = res.data.user;
@@ -61,7 +61,7 @@ const actions = {
   async register({ commit }, userData) {
     try {
       commit('error_null');
-      let res = await api.post('/users/register', userData);
+      let res = await api.post('/register', userData);
       if (res.data.success) {
         router.push('/Login');
       }
@@ -74,7 +74,7 @@ const actions = {
   async getProfile({ commit }) {
     commit('error_null');
     api.defaults.headers.common['Authorization'] = state.token;
-    let res = await api.get('/users/profile');
+    let res = await api.get('/profile');
     commit('user_profile', res.data.user);
     return res;
   },
