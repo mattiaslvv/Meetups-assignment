@@ -26,6 +26,7 @@ const getters = {
       return false;
     }
   },
+  getLocation: (state) => state.meetupForm.location,
 };
 
 export default getters;

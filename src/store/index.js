@@ -8,6 +8,7 @@ import getters from './getters.js';
 import mutations from './mutations.js';
 import Auth from './auth.js';
 import Meetups from './meetups.js';
+import MapAPI from './mapAPI.js';
 
 Vue.use(Vuex);
 //*********************/
@@ -35,12 +36,10 @@ export default new Vuex.Store({
       eventName: '',
       host: '',
       details: '',
+      time: '',
       date: '',
       address: '',
-      location: {
-        type: '',
-        coordinates: [],
-      },
+      location: {},
     },
   },
   mutations: mutations,
@@ -49,5 +48,6 @@ export default new Vuex.Store({
   modules: {
     Auth,
     Meetups,
+    MapAPI,
   },
 });

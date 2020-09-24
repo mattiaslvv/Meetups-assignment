@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="viewFullMeetup(meetup._id)">
+  <div class="card clickable" @click="viewFullMeetup(meetup._id)">
     <ul>
       <li>Name: {{ meetup.eventName }}</li>
       <br />
@@ -36,5 +36,9 @@ export default {
 
 ul {
   list-style: none;
+}
+
+.clickable {
+  cursor: pointer;
 }
 </style>

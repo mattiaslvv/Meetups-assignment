@@ -43,18 +43,16 @@ const actions = {
   async viewFullMeetup(context, id) {
     router.push(`/MeetupDetails/${id}`);
   },
-  async registerThisMeetup(context, payload) {
+  async registerThisMeetup(context) {
+    await context.dispatch('geocodeLocation', context.state.meetupForm.address);
     let postData = {
-      eventName: payload.eventName,
+      eventName: context.state.meetupForm.eventName,
       host: context.getters.user.name,
-      details: payload.details,
-      address: payload.address,
-      date: payload.date,
-      //TODO: use geocoding to translate address to location then send it in to database
-      location: {
-        type: 'Point',
-        coordinates: [18.068, 59.329],
-      },
+      details: context.state.meetupForm.details,
+      address: context.state.meetupForm.address,
+      date: context.state.meetupForm.date,
+      time: context.state.meetupForm.time,
+      location: context.getters.getLocation,
     };
     await context.dispatch('registerMeetup', postData);
   },
