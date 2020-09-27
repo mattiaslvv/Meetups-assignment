@@ -3,13 +3,9 @@
 </template>
 <script>
 import mapboxgl from 'mapbox-gl';
+import { mapGetters } from 'vuex';
 export default {
   name: 'BaseMap',
-  data() {
-    return {
-      accessToken: process.env.VUE_APP_MAPBOX_API_KEY,
-    };
-  },
   props: {
     coords: {
       lat: Number,
@@ -17,9 +13,12 @@ export default {
     },
     name: String,
   },
+  computed: {
+    ...mapGetters(['getMapboxToken']),
+  },
   mounted() {
     let coords = [this.coords.long, this.coords.lat];
-    mapboxgl.accessToken = this.accessToken;
+    mapboxgl.accessToken = this.getMapboxToken;
     const map = new mapboxgl.Map({
       container: 'mapContainer',
       style: 'mapbox://styles/mapbox/streets-v11?optimize=true',

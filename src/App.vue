@@ -25,12 +25,13 @@ export default {
     ...mapGetters(['error', 'isLoggedIn', 'meetupsError']),
   },
   methods: {
-    ...mapActions(['getProfile']),
+    ...mapActions(['getProfile', 'getMapboxToken']),
   },
   created() {
     if (this.isLoggedIn) {
       this.getProfile();
     }
+    this.getMapboxToken();
   },
 };
 </script>
