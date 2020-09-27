@@ -11,7 +11,7 @@
       />
       <span>Matrix Meetups</span>
     </v-container>
-    <v-container class="d-flex justify-space-around">
+    <v-container class="d-flex justify-space-around" data-cy="nav">
       <router-link to="/" tag="button" class="font-weight-bold"
         >Home</router-link
       >
