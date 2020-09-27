@@ -9,7 +9,7 @@ let url;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api/meetups';
 } else {
-  url = 'https://meetups-back-end.herokuapp.com/api';
+  url = 'https://meetups-back-end.herokuapp.com/api/meetups';
 }
 const api = axios.create({
   baseURL: url,
