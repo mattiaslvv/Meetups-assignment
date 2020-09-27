@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <Meetup
-      v-for="meetup in filteredMeetups"
-      :key="meetup._id"
-      :meetup="meetup"
-    />
-  </div>
+  <v-container>
+    <v-row>
+      <Meetup
+        v-for="meetup in filteredMeetups"
+        :key="meetup._id"
+        :meetup="meetup"
+      />
+    </v-row>
+  </v-container>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex';
@@ -16,7 +18,7 @@ export default {
     Meetup,
   },
   computed: {
-    ...mapGetters(['filteredMeetups']),
+    ...mapGetters(['filteredMeetups', 'loading']),
   },
   methods: {
     ...mapActions(['getAllMeetups']),
