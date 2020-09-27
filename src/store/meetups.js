@@ -24,6 +24,9 @@ const state = {
   filteredMeetups: [],
   clickedMeetup: '',
   loading: false,
+  mapBox: {
+    token: '',
+  },
 };
 
 //************************/
@@ -36,6 +39,7 @@ const getters = {
   clickedMeetup: (state) => state.clickedMeetup,
   filteredMeetups: (state) => state.filteredMeetups,
   loading: (state) => state.loading,
+  getMapboxToken: (state) => state.mapBox.token,
 };
 
 //************************/
@@ -158,6 +162,14 @@ const actions = {
       commit('api_error', err);
     }
   },
+  async getMapboxToken({ commit }) {
+    commit('api_loading');
+    commit('error_null');
+    let res = await api.get('/api');
+    commit('set_api_token', res.data.token);
+    commit('api_done');
+    return res;
+  },
 };
 
 //**************************/
@@ -200,6 +212,9 @@ const mutations = {
   },
   api_done(state) {
     state.loading = false;
+  },
+  set_api_token(state, token) {
+    state.mapBox.token = token;
   },
 };
 

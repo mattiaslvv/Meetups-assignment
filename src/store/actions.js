@@ -44,7 +44,10 @@ const actions = {
     router.push(`/MeetupDetails/${id}`);
   },
   async registerThisMeetup(context) {
-    await context.dispatch('geocodeLocation', context.state.meetupForm.address);
+    await context.dispatch(
+      'geocodeThisLocation',
+      context.state.meetupForm.address
+    );
     let newTime;
     if (context.state.meetupForm.time == '') {
       newTime = 'To Be Decided';
@@ -85,6 +88,13 @@ const actions = {
       userId: context.getters.user._id,
     };
     await context.dispatch('removeMeetup', postData);
+  },
+  async geocodeThisLocation(context, address) {
+    let postData = {
+      address: address,
+      token: context.getters.getMapboxToken,
+    };
+    await context.dispatch('geocodeLocation', postData);
   },
 };
 
