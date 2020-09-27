@@ -23,6 +23,7 @@ const state = {
   allMeetups: [],
   filteredMeetups: [],
   clickedMeetup: '',
+  loading: false,
 };
 
 //************************/
@@ -34,6 +35,7 @@ const getters = {
   meetupsError: (state) => state.error,
   clickedMeetup: (state) => state.clickedMeetup,
   filteredMeetups: (state) => state.filteredMeetups,
+  loading: (state) => state.loading,
 };
 
 //************************/
@@ -43,17 +45,21 @@ const getters = {
 const actions = {
   // Get all meetups
   async getAllMeetups({ commit }) {
+    commit('api_loading');
     commit('error_null');
     let res = await api.get('/all');
     commit('meetup_success', res.data.meetups);
+    commit('api_done');
     return res;
   },
   //Register a new meetup
   async registerMeetup({ commit }, postData) {
+    commit('api_loading');
     commit('error_null');
     try {
       let res = await api.post('/register', postData);
       if (res.data.success) {
+        commit('api_done');
         router.push(`/MeetupDetails/${res.data.meetup._id}`);
       }
       return res;
@@ -63,9 +69,11 @@ const actions = {
   },
   async sendReview({ commit }, postData) {
     commit('error_null');
+    commit('api_loading');
     try {
       let res = await api.post('/review', postData);
       if (res.data.success) {
+        commit('api_done');
         router.history.go();
       }
       return res;
@@ -89,15 +97,19 @@ const actions = {
     commit('get_by_keyword', keyword);
   },
   async displayAllMeetups({ commit }) {
+    commit('api_loading');
     commit('display_all_meetups');
+    commit('api_done');
   },
   async getMeetupWithId({ commit }, payload) {
+    commit('api_loading');
     const postData = {
       id: payload,
     };
     let res = await api.post('/meetup', postData);
     if (res.data.success) {
       await commit('set_clicked_meetup', res.data.meetups);
+      commit('api_done');
     }
     return res;
   },
@@ -105,10 +117,12 @@ const actions = {
     await commit('set_clicked_meetup', null);
   },
   async attendMeetup({ commit }, postData) {
+    commit('api_loading');
     commit('error_null');
     try {
       let res = await api.post('/attend', postData);
       if (res.data.success) {
+        commit('api_done');
         router.history.go();
       }
       return res;
@@ -117,10 +131,26 @@ const actions = {
     }
   },
   async removeAttendMeetup({ commit }, postData) {
+    commit('api_loading');
     commit('error_null');
     try {
       let res = await api.put('/attend', postData);
       if (res.data.success) {
+        commit('api_done');
+        router.history.go();
+      }
+      return res;
+    } catch (err) {
+      commit('api_error', err);
+    }
+  },
+  async removeMeetup({ commit }, postData) {
+    commit('api_loading');
+    commit('error_null');
+    try {
+      let res = await api.put('/meetup/remove', postData);
+      if (res.data.success) {
+        commit('api_done');
         router.history.go();
       }
       return res;
@@ -164,6 +194,12 @@ const mutations = {
   },
   display_all_meetups(state) {
     state.filteredMeetups = state.allMeetups;
+  },
+  api_loading(state) {
+    state.loading = true;
+  },
+  api_done(state) {
+    state.loading = false;
   },
 };
 

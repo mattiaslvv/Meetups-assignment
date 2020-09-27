@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <v-container>
     <CreateMeetupForm />
-  </div>
+  </v-container>
 </template>
 <script>
 import CreateMeetupForm from '@/components/CreateMeetupForm/CreateMeetupForm.vue';

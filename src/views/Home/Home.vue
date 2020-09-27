@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <v-container class="home">
     <SearchBar />
     <MeetupList />
-  </div>
+  </v-container>
 </template>
 
 <script>

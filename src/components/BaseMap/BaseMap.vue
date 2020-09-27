@@ -1,5 +1,5 @@
 <template>
-  <div id="mapContainer" class="basemap"></div>
+  <v-container id="mapContainer" class="basemap"> </v-container>
 </template>
 <script>
 import mapboxgl from 'mapbox-gl';
@@ -38,9 +38,15 @@ export default {
   box-sizing: border-box;
 }
 #mapContainer {
-  border: 1px solid black;
-  width: 60%;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   margin: 0 auto;
+  margin-bottom: 6%;
+  border: none;
+  outline: none;
+  /* #ff9800; */
+  -webkit-box-shadow: 0px 11px 10px -7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 11px 10px -7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 11px 10px -7px rgba(0, 0, 0, 0.2);
 }
 </style>

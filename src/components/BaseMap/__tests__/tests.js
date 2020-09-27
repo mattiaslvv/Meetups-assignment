@@ -8,6 +8,8 @@ import BaseMap from '@/components/BaseMap/BaseMap.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
 import mapboxgl from 'mapbox-gl';
+import Vuetify from 'vuetify';
+import Vue from 'vue';
 
 const localVue = createLocalVue();
 localVue.use(VueRouter, Vuex);
@@ -41,8 +43,11 @@ describe('Map renders when page is entered', () => {
     long: 50.0,
   };
   let mapbox;
+  let vuetify;
   beforeEach(() => {
     mapbox = mapboxgl;
+    vuetify = new Vuetify();
+    Vue.use(Vuetify);
   });
   const name = 'Testing this';
   test('Test so that mapboxgl renders on component creation', async () => {
@@ -50,6 +55,7 @@ describe('Map renders when page is entered', () => {
     const wrapper = shallowMount(BaseMap, {
       store,
       localVue,
+      vuetify,
       propsData: {
         coords,
         name,
