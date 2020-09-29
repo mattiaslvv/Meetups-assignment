@@ -69,6 +69,7 @@
         <v-btn
           @click="attendThisMeetup($route.params.id)"
           dark
+          id="sendAttend"
           depressed
           color="orange"
           class="font-weight-bold"
@@ -81,6 +82,7 @@
           @click="removeAttendThisMeetup($route.params.id)"
           dark
           depressed
+          id="removeAttend"
           color="orange"
           class="font-weight-bold"
         >
@@ -120,10 +122,12 @@
           name="newReviewText"
           prepend-icon="mdi-comment-text-outline"
           v-model="reviewText"
+          id="reviewInput"
         />
         <v-btn
           dark
           depressed
+          id="sendReview"
           color="orange"
           class="font-weight-bold"
           @click="
@@ -140,6 +144,7 @@
         <v-btn
           @click="removeThisReview($route.params.id)"
           dark
+          id="removeReview"
           depressed
           color="orange"
           class="font-weight-bold"

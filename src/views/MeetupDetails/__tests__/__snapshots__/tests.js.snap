@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates meetupdetails page It renders correctly and matches snapshot 1`] = `
+<div>
+  <!---->
+</div>
+`;

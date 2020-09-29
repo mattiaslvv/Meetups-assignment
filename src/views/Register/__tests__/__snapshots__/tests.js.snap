@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates to register page It renders correctly and matches snapshot 1`] = `
+<div class="container d-flex flex-column align-center">
+  <div class="container register-form">
+    <div class="mx-auto v-card v-sheet theme--light" style="max-width: 500px;">
+      <header class="gradient v-sheet theme--dark v-toolbar v-toolbar--flat" style="height: 64px;">
+        <div class="v-toolbar__content" style="height: 64px;">
+          <div class="v-toolbar__title font-weight-bold">Register</div>
+          <div class="spacer"></div>
+        </div>
+      </header>
+      <form>
+        <div class="v-card__title title font-weight-regular justify-space-between"><span>Sign-up</span>
+          <div class="v-avatar subheading white--text orange" style="height: 24px; min-width: 24px; width: 24px;">1</div>
+        </div>
+        <div class="v-window v-item-group theme--light" id="registerWindow">
+          <div class="v-window__container">
+            <transition-stub name="">
+              <div class="v-window-item v-window-item--active">
+                <div class="v-card__text">
+                  <div class="v-input theme--light v-text-field v-text-field--placeholder">
+                    <div class="v-input__prepend-outer">
+                      <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-account-box-outline theme--light"></i></div>
+                    </div>
+                    <div class="v-input__control">
+                      <div class="v-input__slot">
+                        <div class="v-text-field__slot"><label for="name" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Name</label><input autocomplete="name" required="required" id="name" placeholder="Full name" type="text"></div>
+                      </div>
+                      <div class="v-text-field__details">
+                        <div class="v-messages theme--light">
+                          <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                        </div>
+                      </div>
+                    </div>
+                  </div> <span class="caption grey--text text--darken-1">
+              Your full name
+            </span>
+                </div>
+              </div>
+            </transition-stub>
+            <transition-stub name="">
+              <!---->
+            </transition-stub>
+            <transition-stub name="">
+              <!---->
+            </transition-stub>
+            <transition-stub name="">
+              <!---->
+            </transition-stub>
+            <transition-stub name="">
+              <!---->
+            </transition-stub>
+          </div>
+        </div>
+        <hr role="separator" aria-orientation="horizontal" class="v-divider theme--light">
+        <div class="v-card__actions"><button type="button" disabled="disabled" class="v-btn v-btn--disabled v-btn--flat v-btn--text theme--light v-size--default"><span class="v-btn__content"> Back </span></button>
+          <div class="spacer"></div> <button type="button" class="font-weight-bold v-btn v-btn--depressed theme--dark v-size--default orange" id="next"><span class="v-btn__content">
+          Next
+        </span></button>
+          <!---->
+          <!---->
+        </div>
+      </form>
+    </div>
+    <div class="text-center ma-2">
+      <div class="v-snack v-snack--bottom v-snack--centered v-snack--has-background" style="padding-bottom: 0px; padding-top: 0px;" id="submitStatus">
+        <transition-stub name="v-snack-transition">
+          <div class="v-snack__wrapper v-sheet theme--dark red" style="display: none;">
+            <div role="status" aria-live="polite" class="v-snack__content font-weight-bold"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert theme--dark"></i>
+
+            </div>
+            <div class="v-snack__action "><button type="button" class="font-weight-bold v-btn v-btn--flat v-btn--text theme--dark v-size--default white--text v-snack__btn"><span class="v-btn__content">
+          Close
+        </span></button></div>
+          </div>
+        </transition-stub>
+      </div>
+    </div>
+  </div> <button class=""><i>Already have an account?</i></button>
+</div>
+`;

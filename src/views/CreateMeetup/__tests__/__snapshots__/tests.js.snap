@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates to createMeetup page It renders correctly and matches snapshot 1`] = `
+<div class="container">
+  <div class="container fill-height container--fluid">
+    <div class="row align-center justify-center">
+      <div class="col-sm-12 col-md-8 col-12">
+        <form class="createmeetup-form">
+          <h2 class="font-weight-bold">Create a Meetup</h2>
+          <div class="v-input theme--light v-text-field">
+            <div class="v-input__prepend-outer">
+              <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-calendar-text theme--light"></i></div>
+            </div>
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot"><label for="eventName" class="v-label theme--light" style="left: 0px; position: absolute;">Meetup name</label><input required="required" id="eventName" type="text"></div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+                <div class="v-counter theme--light">0 / 50</div>
+              </div>
+            </div>
+          </div>
+          <div class="v-input theme--light v-text-field">
+            <div class="v-input__prepend-outer">
+              <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-card-text-outline theme--light"></i></div>
+            </div>
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot"><label for="details" class="v-label theme--light" style="left: 0px; position: absolute;">Details</label><input required="required" id="details" type="text"></div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v-input theme--light v-text-field">
+            <div class="v-input__prepend-outer">
+              <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-map-marker theme--light"></i></div>
+            </div>
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-text-field__slot"><label for="address" class="v-label theme--light" style="left: 0px; position: absolute;">Address</label><input required="required" id="address" type="text"></div>
+              </div>
+              <div class="v-text-field__details">
+                <div class="v-messages theme--light">
+                  <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="v-menu" id="menu">
+            <div class="v-input v-input--is-readonly theme--light v-text-field">
+              <div class="v-input__prepend-outer">
+                <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-calendar-range theme--light"></i></div>
+              </div>
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="date" class="v-label theme--light" style="left: 0px; position: absolute;">Pick a date and click OK</label><input required="required" role="button" aria-haspopup="true" aria-expanded="false" id="date" readonly="readonly" type="text"></div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div class="v-menu" id="timeMenu">
+            <div class="v-input v-input--is-label-active v-input--is-readonly theme--light v-text-field">
+              <div class="v-input__prepend-outer">
+                <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-clock-outline theme--light"></i></div>
+              </div>
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="time" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Pick a time and click OK (Not required)</label><input role="button" aria-haspopup="true" aria-expanded="false" id="time" readonly="readonly" type="time"></div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---->
+          </div>
+          <div class="v-input theme--light v-input--selection-controls v-input--checkbox">
+            <div class="v-input__control">
+              <div class="v-input__slot">
+                <div class="v-input--selection-controls__input"><i aria-hidden="true" class="v-icon notranslate mdi mdi-checkbox-blank-outline theme--light"></i><input aria-checked="false" id="checkBox" role="checkbox" type="checkbox" required="required" value="">
+                  <div class="v-input--selection-controls__ripple"></div>
+                </div><label for="checkBox" class="v-label theme--light" style="left: 0px; position: relative;">Everything look good?</label>
+              </div>
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+            </div>
+          </div> <button type="button" class="mr-4 font-weight-bold v-btn v-btn--contained theme--dark v-size--default green" id="createMeetup"><span class="v-btn__content">Create Meetup</span></button> <button type="button" class="v-btn v-btn--contained theme--dark v-size--default orange" font-weight-bold=""><span class="v-btn__content">Clear</span></button>
+        </form>
+        <div class="text-center ma-2">
+          <div class="v-snack v-snack--bottom v-snack--centered v-snack--has-background" style="padding-bottom: 0px; padding-top: 0px;" id="submitStatus">
+            <transition-stub name="v-snack-transition">
+              <div class="v-snack__wrapper v-sheet theme--dark red" style="display: none;">
+                <div role="status" aria-live="polite" class="v-snack__content font-weight-bold"><i aria-hidden="true" class="v-icon notranslate mdi mdi-alert theme--dark"></i>
+
+                </div>
+                <div class="v-snack__action "><button type="button" class="font-weight-bold v-btn v-btn--flat v-btn--text theme--dark v-size--default white--text v-snack__btn"><span class="v-btn__content">
+              Close
+            </span></button></div>
+              </div>
+            </transition-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
