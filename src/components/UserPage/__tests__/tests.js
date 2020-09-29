@@ -5,7 +5,7 @@ import {
   enableAutoDestroy,
 } from '@vue/test-utils';
 import Vuex from 'vuex';
-import UserPage from '@/components/Userpage/UserPage.vue';
+import UserPage from '@/components/UserPage/UserPage.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
 import router from '@/router/index.js';
