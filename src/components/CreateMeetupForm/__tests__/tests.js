@@ -144,7 +144,6 @@ describe('User navigates to the page and fills in forms to create a Meetup', () 
       setData: {
         menu: true,
         timeMenu: true,
-        $invalid: false,
       },
     });
     //Act

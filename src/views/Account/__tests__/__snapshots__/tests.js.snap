@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates to account page It renders correctly and matches snapshot 1`] = `
+<div>
+  <div class="container fill-height container--fluid">
+    <div class="mx-auto v-card v-sheet theme--light rounded-0" style="min-height: 100%; max-width: 800px;">
+      <div class="v-image v-responsive theme--light" style="max-height: 300px;">
+        <transition-stub name="fade-transition" mode="in-out">
+          <div class="v-image__image v-image__image--preload v-image__image--cover" style="background-position: center center;"></div>
+        </transition-stub>
+        <transition-stub name="fade-transition" appear="true">
+          <div class="v-image__placeholder">
+            <div class="px-3 pt-3 pb-3 fill-height v-sheet theme--light grey lighten-4">
+              <div aria-busy="true" aria-live="polite" role="alert" class="v-skeleton-loader mx-auto v-skeleton-loader--is-loading theme--light">
+                <div class="v-skeleton-loader__image v-skeleton-loader__bone"></div>
+              </div>
+            </div>
+          </div>
+        </transition-stub>
+        <div class="v-responsive__content"></div>
+      </div>
+      <div class="col">
+        <div class="v-avatar avatar-position" style="height: 150px; min-width: 150px; width: 150px;">
+          <div class="v-image v-responsive theme--light">
+            <transition-stub name="fade-transition" mode="in-out">
+              <div class="v-image__image v-image__image--preload v-image__image--cover" style="background-position: center center;"></div>
+            </transition-stub>
+            <div class="v-responsive__content"></div>
+          </div>
+        </div>
+      </div>
+      <div tabindex="-1" class="margin-top v-list-item theme--light" style="color: rgba(0, 0, 0, 0.4); caret-color: rgba(0, 0, 0, .4);">
+        <div class="v-list-item__content">
+          <div class="v-list-item__title display-1">Testington</div>
+          <div class="v-list-item__subtitle title">Testboi@testing.test</div>
+          <div class="v-list-item__subtitle title">Testzor</div>
+          <div class="v-list-item__subtitle title">Member since: 2020-09-27T00:04:53.496+00:00</div>
+        </div>
+      </div>
+      <div data-test="createdMeetups" class="container full">
+        <div class="v-card__title">My created Meetups
+          <span class="v-badge theme--light"><span class="v-badge__wrapper"><transition-stub name="scale-rotate-transition"><span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge orange" style="bottom: calc(100% - -2px); left: calc(100% - 1px);">1</span></transition-stub></span></span>
+        </div>
+        <div class="row">
+          <div xs="8" class="col-md-4 col">
+            <div class="mx-auto d-flex flex-column align-center v-card v-sheet theme--light" style="min-height: 50px; min-width: 200px;">
+              <div class="v-card__title clickable">Test</div> <button type="button" class="v-btn v-btn--contained theme--dark v-size--default orange" style="width: 100%;" id="removeMeetup"><span class="v-btn__content">
+              Remove Meetup
+            </span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-test="attendingMeetups" class="container">
+        <div class="v-card__title">Meetups I'm attending
+          <span class="v-badge theme--light"><span class="v-badge__wrapper"><transition-stub name="scale-rotate-transition"><span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge orange" style="bottom: calc(100% - -2px); left: calc(100% - 1px);">1</span></transition-stub></span></span>
+        </div>
+        <div class="row">
+          <div xs="8" class="col-md-4 col">
+            <div class="mx-auto d-flex flex-column align-center v-card v-sheet theme--light" style="min-height: 50px; min-width: 200px;">
+              <div class="v-card__title clickable"></div> <button type="button" class="v-btn v-btn--contained theme--dark v-size--default orange" style="width: 100%;" id="removeAttendance"><span class="v-btn__content">
+              Remove attendance
+            </span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-test="reviewHistory" class="container">
+        <div class="v-card__title">Meetups I've reviewed
+          <span class="v-badge theme--light"><span class="v-badge__wrapper"><transition-stub name="scale-rotate-transition"><span aria-atomic="true" aria-label="Badge" aria-live="polite" role="status" class="v-badge__badge orange" style="bottom: calc(100% - -2px); left: calc(100% - 1px);">1</span></transition-stub></span></span>
+        </div>
+        <div class="row">
+          <div xs="8" class="col-md-4 col">
+            <div class="mx-auto d-flex flex-column align-center v-card v-sheet theme--light" style="min-height: 50px; min-width: 200px;">
+              <div class="v-card__title clickable"></div>
+              <div class="v-card__subtitle">
+                Testing this test
+              </div> <button type="button" class="v-btn v-btn--contained theme--dark v-size--default orange" style="width: 100%;" id="removeReview"><span class="v-btn__content">
+              Remove review
+            </span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

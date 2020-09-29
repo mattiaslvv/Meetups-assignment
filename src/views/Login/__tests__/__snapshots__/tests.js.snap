@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates to home page It renders correctly and matches snapshot 1`] = `
+<div class="container d-flex flex-column align-center">
+  <div class="spacer"></div>
+  <div class="container fill-height container--fluid">
+    <div class="row align-center justify-center">
+      <div class="col-sm-8 col-md-6 col-12">
+        <div class="elevation-12 v-card v-sheet theme--light">
+          <header class="gradient v-sheet theme--dark v-toolbar v-toolbar--flat" style="height: 64px;">
+            <div class="v-toolbar__content" style="height: 64px;">
+              <div class="v-toolbar__title font-weight-bold">Login</div>
+              <div class="spacer"></div>
+            </div>
+          </header>
+          <div class="v-card__text">
+            <form novalidate="novalidate" class="v-form">
+              <div class="v-input theme--light v-text-field v-text-field--placeholder">
+                <div class="v-input__prepend-outer">
+                  <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-account theme--light"></i></div>
+                </div>
+                <div class="v-input__control">
+                  <div class="v-input__slot">
+                    <div class="v-text-field__slot"><label for="username" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Username</label><input autocomplete="username" name="username" required="required" id="username" placeholder="Username" type="text"></div>
+                  </div>
+                  <div class="v-text-field__details">
+                    <div class="v-messages theme--light">
+                      <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="v-input theme--light v-text-field v-text-field--placeholder">
+                <div class="v-input__prepend-outer">
+                  <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-lock theme--light"></i></div>
+                </div>
+                <div class="v-input__control">
+                  <div class="v-input__slot">
+                    <div class="v-text-field__slot"><label for="password" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Password</label><input autocomplete="current-password" name="password" required="required" id="password" placeholder="Password..." type="password"></div>
+                  </div>
+                  <div class="v-text-field__details">
+                    <div class="v-messages theme--light">
+                      <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="v-card__actions">
+            <div class="spacer"></div> <button type="button" class="font-weight-bold v-btn v-btn--contained theme--dark v-size--default orange" id="loginBtn"><span class="v-btn__content">Login</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <button class=""><i>Not registered yet?</i></button>
+</div>
+`;

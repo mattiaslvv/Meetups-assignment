@@ -24,6 +24,7 @@
           color="orange"
           class="font-weight-bold"
           text
+          id="viewFullMeetup"
           @click="viewFullMeetup(meetup._id)"
         >
           View full Meetup
