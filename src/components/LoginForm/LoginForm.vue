@@ -89,6 +89,7 @@ export default {
     async submit() {
       this.$v.$touch();
       if (this.$v.$invalid) {
+        console.log('Invalid form.');
       } else {
         // do your submit logic here
         await this.$store.dispatch('loginThisUser');
