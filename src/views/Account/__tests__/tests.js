@@ -7,7 +7,6 @@ import {
 import Vuex from 'vuex';
 import Account from '@/views/Account/Account.vue';
 import VueRouter from 'vue-router';
-import store from '@/store/index.js';
 import router from '@/router/index.js';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
