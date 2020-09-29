@@ -15,11 +15,12 @@
             v-text="step"
           ></v-avatar>
         </v-card-title>
-        <v-window v-model="step">
+        <v-window v-model="step" id="registerWindow">
           <v-window-item :value="1">
             <v-card-text>
               <v-text-field
                 label="Name"
+                id="name"
                 color="orange"
                 prepend-icon="mdi-account-box-outline"
                 placeholder="Full name"
@@ -41,6 +42,7 @@
                 label="Password"
                 v-model="password"
                 color="orange"
+                id="password"
                 autocomplete="new-password"
                 prepend-icon="mdi-lock-question"
                 type="password"
@@ -53,6 +55,7 @@
                 label="Confirm Password"
                 v-model="confirm_password"
                 color="orange"
+                id="confirm_password"
                 autocomplete="new-password"
                 prepend-icon="mdi-lock-reset"
                 type="password"
@@ -71,6 +74,7 @@
               <v-text-field
                 label="Email"
                 v-model="email"
+                id="email"
                 autocomplete="email"
                 color="orange"
                 type="email"
@@ -93,6 +97,7 @@
                 v-model="username"
                 prepend-icon="mdi-account"
                 color="orange"
+                id="username"
                 autocomplete="username"
                 :error-messages="usernameErrors"
                 @input="$v.username.$touch()"
@@ -130,6 +135,7 @@
             v-if="step <= 4"
             color="orange"
             dark
+            id="next"
             depressed
             @click="step++"
             class="font-weight-bold"
@@ -140,6 +146,7 @@
             v-if="step === 4"
             color="orange"
             dark
+            id="register"
             depressed
             @click="submit"
             class="font-weight-bold"
@@ -164,6 +171,7 @@
       <v-snackbar
         content-class="font-weight-bold"
         color="red"
+        id="submitStatus"
         :centered="centered"
         v-model="snackbar"
       >

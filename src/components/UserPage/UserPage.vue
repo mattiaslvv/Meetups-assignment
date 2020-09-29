@@ -1,20 +1,4 @@
 <template>
-  <!--
-        <h4 v-if="user.reviewHistory != ''">My review history:</h4>
-        <li v-for="review in user.reviewHistory" :key="review.meetupName">
-          Event:
-          <span class="clickable" @click="viewFullMeetup(review._id)">{{
-            review.meetupName
-          }}</span>
-          My review:
-          <span>{{ review.review }}</span>
-          <button @click="removeThisReview(review._id)">
-            Remove review
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div> -->
   <v-container class="fill-height" fluid>
     <v-card class="mx-auto" max-width="800" min-height="100%" tile>
       <v-img
@@ -50,7 +34,11 @@
           >
         </v-list-item-content>
       </v-list-item>
-      <v-container v-if="user.createdMeetups != ''" class="full">
+      <v-container
+        v-if="user.createdMeetups != ''"
+        class="full"
+        data-test="createdMeetups"
+      >
         <v-card-title
           >My created Meetups
           <v-badge
@@ -82,6 +70,7 @@
                 dark
                 width="100%"
                 color="orange"
+                id="removeMeetup"
                 @click="removeThisMeetup(meetup._id)"
               >
                 Remove Meetup
@@ -90,7 +79,10 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-container v-if="user.attendingMeetups != ''">
+      <v-container
+        v-if="user.attendingMeetups != ''"
+        data-test="attendingMeetups"
+      >
         <v-card-title
           >Meetups I'm attending
           <v-badge
@@ -122,6 +114,7 @@
                 dark
                 width="100%"
                 color="orange"
+                id="removeAttendance"
                 @click="removeAttendThisMeetup(attendingMeetup._id)"
               >
                 Remove attendance
@@ -130,7 +123,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-container v-if="user.reviewHistory != ''">
+      <v-container v-if="user.reviewHistory != ''" data-test="reviewHistory">
         <v-card-title
           >Meetups I've reviewed
           <v-badge
@@ -165,6 +158,7 @@
                 dark
                 width="100%"
                 color="orange"
+                id="removeReview"
                 @click="removeThisReview(review._id)"
               >
                 Remove review

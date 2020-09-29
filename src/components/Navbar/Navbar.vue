@@ -45,6 +45,7 @@
       >
       <v-btn
         color="orange"
+        id="logoutBtn"
         @click="logout"
         v-if="isLoggedIn"
         class="font-weight-bold"

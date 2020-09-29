@@ -18,7 +18,7 @@ export default {
     Meetup,
   },
   computed: {
-    ...mapGetters(['filteredMeetups', 'loading']),
+    ...mapGetters(['filteredMeetups']),
   },
   methods: {
     ...mapActions(['getAllMeetups']),

@@ -4,7 +4,7 @@
       <v-container>
         <v-text-field
           color="orange"
-          id="input"
+          id="searchBar"
           prepend="magnify"
           type="text"
           @keyup="getByThisKeyword($event.target.value)"

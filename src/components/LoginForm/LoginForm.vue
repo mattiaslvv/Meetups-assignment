@@ -43,7 +43,12 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="orange" class="font-weight-bold" dark @click="submit"
+            <v-btn
+              color="orange"
+              id="loginBtn"
+              class="font-weight-bold"
+              dark
+              @click="submit"
               >Login</v-btn
             >
           </v-card-actions>
@@ -52,14 +57,6 @@
     </v-row>
   </v-container>
 </template>
-
-<script>
-export default {
-  props: {
-    source: String,
-  },
-};
-</script>
 <script>
 import { mapActions } from 'vuex';
 import { mapFields } from 'vuex-map-fields';

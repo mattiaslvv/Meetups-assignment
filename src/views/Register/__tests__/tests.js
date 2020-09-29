@@ -5,7 +5,7 @@ import {
   enableAutoDestroy,
 } from '@vue/test-utils';
 import Vuex from 'vuex';
-import CreateMeetup from '@/views/createMeetup/createMeetup.vue';
+import Register from '@/views/Register/Register.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
 import router from '@/router/index.js';
@@ -18,7 +18,7 @@ localVue.use(VueRouter, Vuex);
 //Destroy wrapper after each test
 enableAutoDestroy(afterEach);
 
-describe('User navigates to createMeetup page', () => {
+describe('User navigates to register page', () => {
   let vuetify;
 
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('User navigates to createMeetup page', () => {
     Vue.use(Vuetify);
   });
   test('It renders correctly and matches snapshot', async () => {
-    const wrapper = mount(CreateMeetup, {
+    const wrapper = mount(Register, {
       store,
       localVue,
       router,

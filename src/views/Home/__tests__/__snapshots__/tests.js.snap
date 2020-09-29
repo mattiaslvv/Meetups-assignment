@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User navigates to home page It renders correctly and matches snapshot 1`] = `
+<div class="container home">
+  <div class="row">
+    <div class="col-sm-5 col-md-3 offset-md-7 col-12">
+      <div class="container">
+        <div class="v-input theme--light v-text-field">
+          <div class="v-input__control">
+            <div class="v-input__slot">
+              <div class="v-text-field__slot"><label for="searchBar" class="v-label theme--light" style="left: 0px; position: absolute;">Search...</label><input prepend="magnify" id="searchBar" type="text"></div>
+              <div class="v-input__append-inner">
+                <div class="v-input__icon v-input__icon--clear"><button disabled="disabled" type="button" aria-label="clear icon" class="v-icon notranslate v-icon--disabled v-icon--link mdi mdi-close theme--light"></button></div>
+              </div>
+            </div>
+            <div class="v-text-field__details">
+              <div class="v-messages theme--light">
+                <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row"></div>
+  </div>
+</div>
+`;
