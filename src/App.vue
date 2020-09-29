@@ -10,7 +10,7 @@
   </v-app>
 </template>
 <script>
-import NavBar from '@/components/Navbar/Navbar.vue';
+import NavBar from '@/components/NavBar/NavBar.vue';
 import Errors from '@/components/Errors/Errors.vue';
 import Footer from '@/components/Footer/Footer.vue';
 import { mapGetters, mapActions } from 'vuex';
