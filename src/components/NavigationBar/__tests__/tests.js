@@ -6,7 +6,7 @@ import {
   RouterLinkStub,
 } from '@vue/test-utils';
 import Vuex from 'vuex';
-import NavBar from '@/components/NavBar/NavBar.vue';
+import NavigationBar from '@/components/NavigationBar/NavigationBar.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
 import router from '@/router/index.js';
@@ -28,7 +28,7 @@ describe('User sees a navigational bar where he/she can click links to navigate 
   });
   test('It renders correctly', async () => {
     //Arrange
-    const wrapper = shallowMount(NavBar, {
+    const wrapper = shallowMount(NavigationBar, {
       store,
       localVue,
       vuetify,
@@ -38,7 +38,7 @@ describe('User sees a navigational bar where he/she can click links to navigate 
   });
   test('Test so that all router links navigates properly', async () => {
     //Act
-    const wrapper = shallowMount(NavBar, {
+    const wrapper = shallowMount(NavigationBar, {
       store,
       localVue,
       vuetify,
@@ -66,7 +66,7 @@ describe('User sees a navigational bar where he/she can click links to navigate 
       getters,
       actions,
     });
-    const wrapper = shallowMount(NavBar, {
+    const wrapper = shallowMount(NavigationBar, {
       store,
       localVue,
       vuetify,
@@ -95,7 +95,7 @@ describe('User sees a navigational bar where he/she can click links to navigate 
       getters,
       actions,
     });
-    const wrapper = mount(NavBar, {
+    const wrapper = mount(NavigationBar, {
       store,
       localVue,
       vuetify,
