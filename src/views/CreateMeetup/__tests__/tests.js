@@ -5,7 +5,7 @@ import {
   enableAutoDestroy,
 } from '@vue/test-utils';
 import Vuex from 'vuex';
-import CreateMeetup from '@/views/createMeetup/createMeetup.vue';
+import CreateMeetup from '@/views/CreateMeetup/CreateMeetup.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
 import router from '@/router/index.js';
