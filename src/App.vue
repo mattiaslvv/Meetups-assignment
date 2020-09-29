@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <NavBar class="gradient" />
+    <NavigationBar class="gradient" />
     <v-main>
       <Errors v-if="error" :msg="error" />
       <Errors v-if="meetupsError" :msg="meetupsError" />
@@ -17,7 +17,7 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
   name: 'App',
   components: {
-    NavBar,
+    NavigationBar,
     Footer,
     Errors,
   },
