@@ -1,10 +1,12 @@
 import axios from 'axios';
 import router from '../router/index.js';
+//*************************************/
+//*** API OPERATIONS AUTHENTICATION***/
+//***********************************/
 
 //****************************/
 //*** SET BASEURL FOR API ***/
 //**************************/
-// TODO: change for deployment of backend server to heroku
 let url;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api/users';
@@ -40,31 +42,42 @@ const getters = {
 
 const actions = {
   //Login action
-  async login({ commit }, user) {
-    commit('error_null');
+  async loginThisUser(context) {
+    let user = {
+      username: context.state.loginForm.username,
+      password: context.state.loginForm.password,
+    };
+    context.commit('error_null');
     try {
       let res = await api.post('/login', user);
       if (res.data.success) {
         const token = res.data.token;
         const user = res.data.user;
         // Store the token in localStorage
-        await commit('set_token', token);
-        commit('auth_success', token, user);
+        await context.commit('set_token', token);
+        context.commit('auth_success', token, user);
         router.push('/Account');
       }
       return res;
     } catch (err) {
-      commit('register_error', err);
+      context.commit('register_error', err);
     }
   },
   // Register new user
-  async register({ commit }, userData) {
+  async registerThisUser(context) {
+    let user = {
+      username: context.state.registerForm.username,
+      password: context.state.registerForm.password,
+      confirm_password: context.state.registerForm.confirm_password,
+      email: context.state.registerForm.email,
+      name: context.state.registerForm.name,
+    };
     try {
-      commit('error_null');
-      let res = await api.post('/register', userData);
+      context.commit('error_null');
+      let res = await api.post('/register', user);
       return res;
     } catch (err) {
-      commit('register_error', err);
+      context.commit('register_error', err);
     }
   },
   // Get the user profile

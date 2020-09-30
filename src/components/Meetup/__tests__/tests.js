@@ -21,6 +21,7 @@ enableAutoDestroy(afterEach);
 describe('User navigates to home page and finds short information about all the meetups', () => {
   let vuetify;
 
+  //Mock API data from database
   const meetup = {
     _id: '123123123',
     location: {

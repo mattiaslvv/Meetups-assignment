@@ -37,15 +37,6 @@ describe('User navigates to the page to enter his/her credentials to log in', ()
     expect(wrapper.exists()).toBe(true);
   });
 
-  test('It should render the component', async () => {
-    const wrapper = mount(LoginForm, {
-      store,
-      localVue,
-      vuetify,
-    });
-    expect(wrapper.exists()).toBe(true);
-  });
-
   test('Test so that all input types are properly v-modeled in state', async () => {
     //Arrange
     const wrapper = mount(LoginForm, {

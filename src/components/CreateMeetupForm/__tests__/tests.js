@@ -13,6 +13,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import { Vuelidate } from 'vuelidate';
 
+//Create localvue instance
 const localVue = createLocalVue();
 localVue.use(VueRouter, Vuex);
 
