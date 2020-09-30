@@ -8,7 +8,7 @@ import Vuex from 'vuex';
 import LoginForm from '@/components/LoginForm/LoginForm.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
-import { mapFields, getField, updateField } from 'vuex-map-fields';
+import { getField, updateField } from 'vuex-map-fields';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import { Vuelidate } from 'vuelidate';
@@ -62,9 +62,6 @@ describe('User navigates to the page to enter his/her credentials to log in', ()
       store,
       localVue,
       vuetify,
-      // computed: {
-      //   ...mapFields(['loginForm.username', 'loginForm.password']),
-      // },
     });
     //Act
     const loginBtn = wrapper.find('#loginBtn');
@@ -111,9 +108,6 @@ describe('User navigates to the page to enter his/her credentials to log in', ()
       store,
       localVue,
       vuetify,
-      // computed: {
-      //   ...mapFields(['loginForm.username', 'loginForm.password']),
-      // },
     });
     //Act
     const loginBtn = wrapper.find('#loginBtn');
