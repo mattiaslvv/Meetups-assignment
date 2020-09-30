@@ -76,14 +76,6 @@ describe('User navigates to the page and fills in forms to create a Meetup', () 
       store,
       localVue,
       vuetify,
-      computed: {
-        ...mapFields([
-          'meetupForm.eventName',
-          'meetupForm.details',
-          'meetupForm.address',
-          'meetupForm.date',
-        ]),
-      },
       setData: {
         menu: true,
         timeMenu: true,
@@ -134,14 +126,6 @@ describe('User navigates to the page and fills in forms to create a Meetup', () 
       store,
       localVue,
       vuetify,
-      computed: {
-        ...mapFields([
-          'meetupForm.eventName',
-          'meetupForm.details',
-          'meetupForm.address',
-          'meetupForm.date',
-        ]),
-      },
       setData: {
         menu: true,
         timeMenu: true,
