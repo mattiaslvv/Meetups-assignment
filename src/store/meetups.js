@@ -107,7 +107,9 @@ const actions = {
       let res = await api.post('/review', postData);
       if (res.data.success) {
         context.commit('api_done');
-        router.history.go();
+        await context.dispatch('getThisMeetupWithId', id);
+        await context.dispatch('getAllMeetups');
+        await context.dispatch('getProfile');
       }
       return res;
     } catch (err) {
@@ -124,7 +126,9 @@ const actions = {
     try {
       let res = await api.put('/review', postData);
       if (res.data.success) {
-        router.history.go();
+        await context.dispatch('getThisMeetupWithId', id);
+        await context.dispatch('getAllMeetups');
+        await context.dispatch('getProfile');
       }
       return res;
     } catch (err) {
@@ -165,7 +169,9 @@ const actions = {
       let res = await api.post('/attend', postData);
       if (res.data.success) {
         context.commit('api_done');
-        router.history.go();
+        await context.dispatch('getThisMeetupWithId', id);
+        await context.dispatch('getAllMeetups');
+        await context.dispatch('getProfile');
       }
       return res;
     } catch (err) {
@@ -183,7 +189,9 @@ const actions = {
       let res = await api.put('/attend', postData);
       if (res.data.success) {
         context.commit('api_done');
-        router.history.go();
+        await context.dispatch('getThisMeetupWithId', id);
+        await context.dispatch('getAllMeetups');
+        await context.dispatch('getProfile');
       }
       return res;
     } catch (err) {
@@ -201,7 +209,9 @@ const actions = {
       let res = await api.put('/meetup/remove', postData);
       if (res.data.success) {
         context.commit('api_done');
-        router.history.go();
+        await context.dispatch('getThisMeetupWithId', id);
+        await context.dispatch('getAllMeetups');
+        await context.dispatch('getProfile');
       }
       return res;
     } catch (err) {

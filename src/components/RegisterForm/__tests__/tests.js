@@ -8,7 +8,7 @@ import Vuex from 'vuex';
 import RegisterForm from '@/components/RegisterForm/RegisterForm.vue';
 import VueRouter from 'vue-router';
 import store from '@/store/index.js';
-import { mapFields, getField, updateField } from 'vuex-map-fields';
+import { getField, updateField } from 'vuex-map-fields';
 import Vue from 'vue';
 import Vuetify from 'vuetify';
 import { Vuelidate } from 'vuelidate';
