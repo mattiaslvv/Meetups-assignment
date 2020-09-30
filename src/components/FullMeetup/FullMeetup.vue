@@ -38,8 +38,8 @@
       />
       <v-card-title class="title styled gradient space-top">
         Attending<v-badge
-          v-if="clickedMeetup.attendees.length > 0"
           color="orange"
+          v-if="clickedMeetup.attendees.length > 0"
           :content="clickedMeetup.attendees.length"
           offset-x="1"
           offset-y="-2"
@@ -91,8 +91,8 @@
       </v-container>
       <v-card-title class="title styled gradient">
         Reviews<v-badge
-          v-if="clickedMeetup.reviews.length > 0"
           color="orange"
+          v-if="clickedMeetup.reviews.length > 0"
           :content="clickedMeetup.reviews.length"
           offset-x="1"
           offset-y="-2"

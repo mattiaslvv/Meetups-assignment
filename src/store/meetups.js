@@ -62,20 +62,20 @@ const actions = {
   async registerThisMeetup(context) {
     await context.dispatch(
       'geocodeThisLocation',
-      context.state.meetupForm.address
+      context.rootState.meetupForm.address
     );
     let newTime;
-    if (context.state.meetupForm.time == '') {
+    if (context.rootState.meetupForm.time == '') {
       newTime = 'To Be Decided';
     } else {
-      newTime = context.state.meetupForm.time;
+      newTime = context.rootState.meetupForm.time;
     }
     let postData = {
-      eventName: context.state.meetupForm.eventName,
+      eventName: context.rootState.meetupForm.eventName,
       host: context.getters.user.name,
-      details: context.state.meetupForm.details,
-      address: context.state.meetupForm.address,
-      date: context.state.meetupForm.date,
+      details: context.rootState.meetupForm.details,
+      address: context.rootState.meetupForm.address,
+      date: context.rootState.meetupForm.date,
       time: newTime,
       location: context.getters.getLocation,
     };

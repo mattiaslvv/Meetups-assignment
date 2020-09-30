@@ -1,5 +1,5 @@
 <template>
-  <v-container class="fill-height" fluid>
+  <v-container class="fill-height" fluid v-if="user">
     <v-card class="mx-auto" max-width="800" min-height="100%" tile>
       <v-img
         max-height="300"
@@ -42,8 +42,8 @@
         <v-card-title
           >My created Meetups
           <v-badge
-            v-if="user.createdMeetups.length > 0"
             color="orange"
+            v-if="user.createdMeetups"
             :content="user.createdMeetups.length"
             offset-x="1"
             offset-y="-2"
@@ -86,8 +86,8 @@
         <v-card-title
           >Meetups I'm attending
           <v-badge
-            v-if="user.attendingMeetups.length > 0"
             color="orange"
+            v-if="user.attendingMeetups"
             :content="user.attendingMeetups.length"
             offset-x="1"
             offset-y="-2"
@@ -127,8 +127,8 @@
         <v-card-title
           >Meetups I've reviewed
           <v-badge
-            v-if="user.reviewHistory.length > 0"
             color="orange"
+            v-if="user.reviewHistory"
             :content="user.reviewHistory.length"
             offset-x="1"
             offset-y="-2"

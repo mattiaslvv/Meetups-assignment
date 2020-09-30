@@ -56,15 +56,15 @@ describe('User navigates to the page to enter his/her credentials to log in', ()
     expect(store.state.loginForm.password).toBe(password.element.value);
   });
 
-  test('Test so that login action is called when form is valid', async () => {
+  test('Test so that form gets valid when fields are properly filled in', async () => {
     //Arrange
     const wrapper = mount(LoginForm, {
       store,
       localVue,
       vuetify,
-      computed: {
-        ...mapFields(['loginForm.username', 'loginForm.password']),
-      },
+      // computed: {
+      //   ...mapFields(['loginForm.username', 'loginForm.password']),
+      // },
     });
     //Act
     const loginBtn = wrapper.find('#loginBtn');
@@ -111,9 +111,9 @@ describe('User navigates to the page to enter his/her credentials to log in', ()
       store,
       localVue,
       vuetify,
-      computed: {
-        ...mapFields(['loginForm.username', 'loginForm.password']),
-      },
+      // computed: {
+      //   ...mapFields(['loginForm.username', 'loginForm.password']),
+      // },
     });
     //Act
     const loginBtn = wrapper.find('#loginBtn');

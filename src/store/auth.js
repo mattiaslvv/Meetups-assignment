@@ -44,8 +44,8 @@ const actions = {
   //Login action
   async loginThisUser(context) {
     let user = {
-      username: context.state.loginForm.username,
-      password: context.state.loginForm.password,
+      username: context.rootState.loginForm.username,
+      password: context.rootState.loginForm.password,
     };
     context.commit('error_null');
     try {
@@ -66,11 +66,11 @@ const actions = {
   // Register new user
   async registerThisUser(context) {
     let user = {
-      username: context.state.registerForm.username,
-      password: context.state.registerForm.password,
-      confirm_password: context.state.registerForm.confirm_password,
-      email: context.state.registerForm.email,
-      name: context.state.registerForm.name,
+      username: context.rootState.registerForm.username,
+      password: context.rootState.registerForm.password,
+      confirm_password: context.rootState.registerForm.confirm_password,
+      email: context.rootState.registerForm.email,
+      name: context.rootState.registerForm.name,
     };
     try {
       context.commit('error_null');
