@@ -17,6 +17,7 @@ export default {
     ...mapGetters(['getMapboxToken']),
   },
   mounted() {
+    //Insert map into HTML template during mounted lifecycle hook
     let coords = [this.coords.long, this.coords.lat];
     mapboxgl.accessToken = this.getMapboxToken;
     const map = new mapboxgl.Map({

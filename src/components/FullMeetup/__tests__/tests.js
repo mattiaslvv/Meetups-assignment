@@ -47,6 +47,7 @@ describe('User navigates to the page to see information about a Meetup', () => {
     vuetify = new Vuetify();
     Vue.use(Vuetify);
 
+    //Mock API data from database
     state = {
       clickedMeetup: {
         _id: '123123123',

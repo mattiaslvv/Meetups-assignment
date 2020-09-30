@@ -11,6 +11,7 @@ import mapboxgl from 'mapbox-gl';
 import Vuetify from 'vuetify';
 import Vue from 'vue';
 
+//Create a localvue instance
 const localVue = createLocalVue();
 localVue.use(VueRouter, Vuex);
 
@@ -38,6 +39,7 @@ jest.mock('mapbox-gl/dist/mapbox-gl', () => ({
 enableAutoDestroy(afterEach);
 
 describe('Map renders when page is entered', () => {
+  //Mock coordinates prop
   const coords = {
     lat: 18.005,
     long: 50.0,
