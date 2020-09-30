@@ -4,7 +4,9 @@ import router from '../router/index.js';
 //*** API OPERATIONS MEETUPS ***/
 //*****************************/
 
-//TODO: fix api operations according to mongoDB & express.js data
+//****************************/
+//*** SET BASEURL FOR API ***/
+//**************************/
 let url;
 if (process.env.NODE_ENV === 'development') {
   url = 'http://localhost:5000/api/meetups';
@@ -57,36 +59,68 @@ const actions = {
     return res;
   },
   //Register a new meetup
-  async registerMeetup({ commit }, postData) {
-    commit('api_loading');
-    commit('error_null');
+  async registerThisMeetup(context) {
+    await context.dispatch(
+      'geocodeThisLocation',
+      context.rootState.meetupForm.address
+    );
+    let newTime;
+    if (context.rootState.meetupForm.time == '') {
+      newTime = 'To Be Decided';
+    } else {
+      newTime = context.rootState.meetupForm.time;
+    }
+    let postData = {
+      eventName: context.rootState.meetupForm.eventName,
+      host: context.getters.user.name,
+      details: context.rootState.meetupForm.details,
+      address: context.rootState.meetupForm.address,
+      date: context.rootState.meetupForm.date,
+      time: newTime,
+      location: context.getters.getLocation,
+    };
+    context.commit('api_loading');
+    context.commit('error_null');
     try {
       let res = await api.post('/register', postData);
       if (res.data.success) {
-        commit('api_done');
+        context.commit('api_done');
         router.push(`/MeetupDetails/${res.data.meetup._id}`);
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
-  async sendReview({ commit }, postData) {
-    commit('error_null');
-    commit('api_loading');
+  async sendThisReview(context, payload) {
+    const text = payload.text;
+    const id = payload._id;
+    const username = context.getters.user.username;
+    const postData = {
+      _id: id,
+      text: text,
+      username: username,
+    };
+    context.commit('error_null');
+    context.commit('api_loading');
     try {
       let res = await api.post('/review', postData);
       if (res.data.success) {
-        commit('api_done');
+        context.commit('api_done');
         router.history.go();
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
-  async removeReview({ commit }, postData) {
-    commit('error_null');
+  async removeThisReview(context, id) {
+    const username = context.getters.user.username;
+    const postData = {
+      _id: id,
+      username: username,
+    };
+    context.commit('error_null');
     try {
       let res = await api.put('/review', postData);
       if (res.data.success) {
@@ -94,7 +128,7 @@ const actions = {
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
   async getByThisKeyword({ commit }, keyword) {
@@ -105,61 +139,73 @@ const actions = {
     commit('display_all_meetups');
     commit('api_done');
   },
-  async getMeetupWithId({ commit }, payload) {
-    commit('api_loading');
+  async getThisMeetupWithId(context, id) {
+    context.commit('api_loading');
     const postData = {
-      id: payload,
+      id: id,
     };
     let res = await api.post('/meetup', postData);
     if (res.data.success) {
-      await commit('set_clicked_meetup', res.data.meetups);
-      commit('api_done');
+      await context.commit('set_clicked_meetup', res.data.meetups);
+      context.commit('api_done');
     }
     return res;
   },
   async clearClickedMeetup({ commit }) {
     await commit('set_clicked_meetup', null);
   },
-  async attendMeetup({ commit }, postData) {
-    commit('api_loading');
-    commit('error_null');
+  async attendThisMeetup(context, id) {
+    const postData = {
+      name: context.getters.user.name,
+      id: id,
+    };
+    context.commit('api_loading');
+    context.commit('error_null');
     try {
       let res = await api.post('/attend', postData);
       if (res.data.success) {
-        commit('api_done');
+        context.commit('api_done');
         router.history.go();
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
-  async removeAttendMeetup({ commit }, postData) {
-    commit('api_loading');
-    commit('error_null');
+  async removeAttendThisMeetup(context, id) {
+    const postData = {
+      name: context.getters.user.name,
+      id: id,
+    };
+    context.commit('api_loading');
+    context.commit('error_null');
     try {
       let res = await api.put('/attend', postData);
       if (res.data.success) {
-        commit('api_done');
+        context.commit('api_done');
         router.history.go();
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
-  async removeMeetup({ commit }, postData) {
-    commit('api_loading');
-    commit('error_null');
+  async removeThisMeetup(context, id) {
+    let postData = {
+      id: id,
+      userId: context.getters.user._id,
+    };
+    context.commit('api_loading');
+    context.commit('error_null');
     try {
       let res = await api.put('/meetup/remove', postData);
       if (res.data.success) {
-        commit('api_done');
+        context.commit('api_done');
         router.history.go();
       }
       return res;
     } catch (err) {
-      commit('api_error', err);
+      context.commit('api_error', err);
     }
   },
   async getMapboxToken({ commit }) {
